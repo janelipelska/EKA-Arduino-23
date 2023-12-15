@@ -1,9 +1,26 @@
+
+int myPhotoresistor = A0; // include photoresistor
+
+#include <Servo.h> // include Servo library
+
+Servo myservo;  // create servo object to control a servo
+
 void setup() {
-  // put your setup code here, to run once:
+
+  Serial.begin(9600);
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
+  int lightValue = analogRead(myPhotoresistor); // assign sensor value to variable
+
+ if(lightValue<500) {
+  myservo.write(180);
+  }
+
+
 
 }
+
